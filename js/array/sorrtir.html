@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sortir</title>
+</head>
+<body>
+    
+    <!--sortir-->
+    <script>
+        var dataArray = [20, 10, 30, 50, 40];
+        var pjg_array = dataArray.length;
+        var dummy;
+
+        alert("Data Array Awal: " + dataArray.toString());
+
+        for (var i = 0; i < pjg_array; i++) {
+            for (var j = 0; j < pjg_array; j++) {
+                if (dataArray[j] > dataArray[i]) {
+                    dummy = dataArray[j];
+                    dataArray[j] = dataArray[i];
+                    dataArray[i] = dummy;
+                }
+            }
+        }
+
+        alert("Data Array setelah disortir: " + dataArray.toString());
+    </script>
+</body>
+</html>

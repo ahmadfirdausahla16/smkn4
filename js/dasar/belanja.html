@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belanja Barang</title>
+</head>
+<body>
+
+    <div>
+        Barang:
+        <select id="listbarang">
+            <option value="buku" selected>Buku</option>
+            <option value="tas">Tas</option>
+            <option value="pencil">Pensil</option>
+            <option value="penghapus">Penghapus</option>
+        </select>
+        <button id="tambah" onclick="cek_barang()">(+)</button>
+    </div>
+    <div>
+        Jumlah:
+        <input type="text" id="jumlah">
+    </div>
+    <div id="barang"></div>
+    <div id="total"></div>
+
+    <script>
+        var harga;
+        var nama_barang;
+        var ket = "";
+        var total = 0;
+        var subtotal = 0;
+
+        function cek_barang() {
+            var nama = document.getElementById("listbarang").value;
+
+            switch (nama) {
+                case 'buku':
+                    harga = 10000;
+                    nama_barang = "Buku";
+                    break;
+                case 'tas':
+                    harga = 50000;
+                    nama_barang = "Tas";
+                    break;
+                case 'pencil':
+                    harga = 5000;
+                    nama_barang = "Pensil";
+                    break;
+                case 'penghapus':
+                    harga = 15000;
+                    nama_barang = "Penghapus";
+                    break;
+            }
+
+            var jumlah = parseInt(document.getElementById("jumlah").value);
+            if (isNaN(jumlah) || jumlah <= 0) {
+                alert("Masukkan jumlah yang valid!");
+                return;
+            }
+
+            subtotal = jumlah * harga;
+            total += subtotal;
+            ket += nama_barang + " : " + harga + " x " + jumlah + " = " + subtotal + "<br>";
+            document.getElementById("barang").innerHTML = ket;
+            document.getElementById("total").innerHTML = "Total belanja = " + total;
+        }
+    </script>
+
+</body>
+</html>
